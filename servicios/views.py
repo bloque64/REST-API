@@ -11,9 +11,9 @@ from servicios.models import Publicacion
 #from servicios.serializers import Publicacion, Steemit
 from rest_framework import generics
 
-from django.contrib.auth import authenticate
-from rest_framework.status import HTTP_401_UNAUTHORIZED
-from rest_framework.authtoken.models import Token
+#from django.contrib.auth import authenticate
+#from rest_framework.status import HTTP_401_UNAUTHORIZED
+#from rest_framework.authtoken.models import Token
 
 
 
@@ -39,4 +39,3 @@ class SteemitList(generics.ListCreateAPIView):
 class SteemitDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Steemit.objects.all()
     serializer_class = SteemitSerializer
-

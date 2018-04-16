@@ -11,6 +11,4 @@ class PublicacionResource(ModelResource):
         queryset = Publicacion.objects.all()
         resource_name = 'Publicacion'
         allowed_methods = ['get', 'post', 'put']
-        authentication = BasicAuthentication()
-        
-        
+        #authentication = BasicAuthentication()
