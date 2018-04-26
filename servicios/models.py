@@ -10,6 +10,7 @@ class Publicacion(models.Model):
     cuerpo = models.TextField()
     image = models.TextField()
     autor = models.CharField(max_length=20)
+    categoria = models.CharField(max_length=20)
     token = models.TextField()
     evaluado = models.BooleanField(default=False)
     formateado = models.BooleanField(default=False)
@@ -25,6 +26,8 @@ class Steemit(models.Model):
     cuerpo = models.TextField()
     image = models.TextField()
     autor = models.CharField(max_length=20)
+    categoria = models.CharField(max_length=20)
+    votos = models.IntegerField()
     votado = models.BooleanField(default=False)
     publicado = models.BooleanField(default=False)
 
