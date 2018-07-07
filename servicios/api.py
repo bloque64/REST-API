@@ -1,14 +1,14 @@
 # services/api.py
 
 from tastypie.resources import ModelResource
-from servicios.models import Publicacion
+from servicios.models import Article
 
 from tastypie.authentication import BasicAuthentication
 
 
-class PublicacionResource(ModelResource):
+class ArticleResource(ModelResource):
     class Meta:
-        queryset = Publicacion.objects.all()
-        resource_name = 'Publicacion'
+        queryset = Article.objects.all()
+        resource_name = 'Article'
         allowed_methods = ['get', 'post', 'put']
         #authentication = BasicAuthentication()

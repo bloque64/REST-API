@@ -4,33 +4,36 @@ from pygments.styles import get_all_styles
 
 
 
-class Publicacion(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=180)
-    cuerpo = models.TextField()
-    image = models.TextField()
-    autor = models.CharField(max_length=20)
-    categoria = models.CharField(max_length=20)
+class Article(models.Model):
+    is_comment = models.BooleanField(default=False)
+    author = models.CharField(max_length=20)
+    parent_author = models.CharField(max_length=20)
+    category = models.CharField(max_length=20)
     token = models.TextField()
-    evaluado = models.BooleanField(default=False)
-    formateado = models.BooleanField(default=False)
-    curado = models.BooleanField(default=False)
+    title = models.CharField(max_length=180)
+    body = models.TextField()
+    image = models.TextField()
+    evaluated = models.BooleanField(default=False)
+    votes = models.IntegerField()
+    down_votes = models.IntegerField()
+    permlink = models.TextField()
+    parent_permlink = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
 
     class Meta:
         ordering = ('created',)
 
 
-class Steemit(models.Model):
-    publicado_fecha = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=180)
-    cuerpo = models.TextField()
-    image = models.TextField()
-    autor = models.CharField(max_length=20)
-    categoria = models.CharField(max_length=20)
-    votos = models.IntegerField()
-    votado = models.BooleanField(default=False)
-    publicado = models.BooleanField(default=False)
+class User(models.Model):
+    user_name = models.CharField(max_length=180)
+    reputation = models.IntegerField()
+    profile_image = models.TextField()
+    presentation = models.TextField()
+    votes = models.IntegerField()
+    down_votes = models.IntegerField()
+    signup_date = models.DateTimeField(auto_now_add=True)
 
 
     class Meta:
-        ordering = ('publicado_fecha',)
+        ordering = ('signup_date',)

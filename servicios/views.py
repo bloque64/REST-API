@@ -2,12 +2,14 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 #from servicios.models import Publicacion
-from servicios.serializers import SteemitSerializer
-from servicios.serializers import PublicacionSerializer
+
+from servicios.serializers import ArticleSerializer
+from servicios.serializers import UserSerializer
 
 
-from servicios.models import  Steemit
-from servicios.models import Publicacion
+
+from servicios.models import Article
+from servicios.models import User
 #from servicios.serializers import Publicacion, Steemit
 from rest_framework import generics
 
@@ -17,25 +19,24 @@ from rest_framework import generics
 
 
 
-class PublicacionList(generics.ListCreateAPIView):
-    queryset = Publicacion.objects.all()
-    serializer_class = PublicacionSerializer
+class ArticleList(generics.ListCreateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
 
 
-class PublicacionDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Publicacion.objects.all()
-    serializer_class = PublicacionSerializer
+class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
 
 
 
-
-class SteemitList(generics.ListCreateAPIView):
-    queryset = Steemit.objects.all()
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
     #print "FUNCIONA queryset SteemitList"
     #print "FUNCIONA queryset SteemitList", queryset
-    serializer_class = SteemitSerializer
+    serializer_class = UserSerializer
 
 
-class SteemitDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Steemit.objects.all()
-    serializer_class = SteemitSerializer
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
